@@ -78,6 +78,9 @@ Le Build Order permet d'atteindre l'objectif en un temps idéal
 #### Description: 
 L'IA veut un BO optimisé en partant des données concernant l'état courant du jeu (unités, bâtiments, ressources) et d'un objectif.
 
+#### Acteurs:
+* IA
+
 #### Pré-conditions:
 Aucune
 

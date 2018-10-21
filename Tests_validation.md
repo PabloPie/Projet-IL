@@ -4,22 +4,22 @@
 ###### Auteur: Ivan Delgado
 
 #### Contexte: 
-L'utilisateur *U_01* a un Build Order *BO_01* qu'il veut valider et dont il veut obtenir la durée idéale
+L'utilisateur *U_01* a un Build Order *BO_01* valide qu'il veut valider et dont il veut obtenir la durée idéale
 
 ##### Entrées:
 * Build Order *BO_01*
 
 #### Scénario:
-1. L'utilisateur *U_01* clique sur "Valider un Build Order"
-2. L'utilisateur rentre le Build Order *BO_01*
-3. Le système indique la durée idéale de *BO_01*
+1. L'utilisateur rentre le Build Order *BO_01*
+2. L'utilisateur *U_01* clique sur "Valider un Build Order"
+
 
 #### Résultat attendu:
-Le système affiche la validité du Build Order et sa durée
+Le système affiche que le Build est valide et sa durée idéale
 
 #### Moyens de vérification:
 * Affichage de la part du système
-* Réalisation du Build Order
+* Test du Build Order dans le jeu
 
 ---
 
@@ -29,29 +29,49 @@ Le système affiche la validité du Build Order et sa durée
 ###### Auteur: Ivan Delgado
 
 #### Contexte: 
-L'utilisateur *U_01* a un Objectif *Ob_01* et une situation du jeu *J_01* à partir desquels il veut obtenir un BO optimisé
+L'utilisateur *U_01* a un Objectif *Ob_01* valide à partir duquel il veut obtenir un BO optimisé
 
 ##### Entrées:
 * Objectif *Ob_01*
-* État du jeu *J_01*
 
 #### Scénario:
-1. L'utilisateur *U_01* clique sur "Optimiser un objectif"
-2. L'utilisateur *U_01* rentre l'objectif *Ob_01*
-3. L'utilisateur *U_01* rentre l'état du jeu *J_01*
+1. L'utilisateur *U_01* introduit l'objectif *Ob_01*
+2. L'utilisateur *U_01* clique sur "Optimiser objectif"
 
 #### Résultat attendu:
 Le système affiche un écran de validation et le Build Order pour réaliser l'objectif
 
 #### Moyens de vérification:
-* Affichage de la part du système
-* Réalisation du Build Order
+* Affichage de la part du système du Build Order et d'un message de validation
+* Test du Build Order dans le jeu
 
 ---
 
-# TV_03: Optimiser un objectif IA
+# TV_03: Optimiser un objectif utilisateur non valide
 
 ###### Id: 03
+
+#### Contexte: 
+L'utilisateur *U_01* a un Objectif *Ob_01* **non** valide à partir duquel il veut obtenir un BO optimisé
+
+##### Entrées:
+* Objectif *Ob_01*
+
+#### Scénario:
+1. L'utilisateur *U_01* introduit l'objectif *Ob_01*
+2. L'utilisateur *U_01* clique sur "Optimiser objectif"
+
+#### Résultat attendu:
+Le système affiche un écran d'érreur qui indique le l'objectif introduit n'est pas valide
+
+#### Moyens de vérification:
+* Affichage de la part du système d'un message d'erreur
+
+---
+
+# TV_04: Optimiser un objectif IA
+
+###### Id: 04
 ###### Auteur: Ivan Delgado
 
 #### Contexte: 
@@ -62,38 +82,14 @@ L'IA *IA_01* a un Objectif *Ob_01* et une situation du jeu *J_01* à optimiser p
 * État du jeu *J_01*
 
 #### Scénario:
-1. L'IA *IA_01* envoie l'état du jeu *J_01* cf: TV_04
-2. L'IA *IA_01* envoie une requête au système contenant l'objectif *Ob_01*
-3. Le système confirme la réception à l'IA
+1. L'IA *IA_01* envoie l'état du jeu *J_01* et l'objectif *Ob_01*
 
 #### Résultat attendu:
-Le système renvoie le Build Order à l'IA *IA_01* pour réaliser l'objectif
+Le système renvoie le Build Order à l'IA *IA_01* pour réaliser l'objectif en temps idéal
 
 #### Moyens de vérification:
-* Réponse du système
-
----
-
-# TV_04: Envoyer un 2ème état du jeu
-
-###### Id: 04
-###### Auteur: Ivan Delgado
-
-#### Contexte: 
-L'IA *IA_01* a une nouvelle situation du jeu *J_02* dans le contexte de l'optimisation d'un objectif
-
-##### Entrées:
-* État du jeu *J_02*
-
-#### Scénario:
-1. L'IA *IA_01* envoie une requête pour changer l'état du jeu, contenant *J_02*, au système
-2. Le système confirme le changement d'état à l'IA
-
-#### Résultat attendu:
-Le système renvoie une confirmation du changement d'état
-
-#### Moyens de vérification:
-* Réponse du système
+* Le système renvoie un Build Order
+* Test du Build Order dans le jeu
 
 ---
 
@@ -103,14 +99,13 @@ Le système renvoie une confirmation du changement d'état
 ###### Auteur: Bastien Peruchena
 
 #### Contexte: 
-L'utilisateur *U_01* fournit correctment le contexte du test TV_02 et utiliser le résultat qu'il obtient pour TV_01
+L'utilisateur *U_01* fournit correctment le contexte du test TV_02 et utilise le résultat qu'il obtient pour TV_01
 
 ##### Entrées:
 * Objectif *Ob_01*
-* État du jeu *J_01*
 
 #### Scénario:
-1. L'utilisateur *U_01* réalise le test TV_02 avec *Ob_01* et *J_01*
+1. L'utilisateur *U_01* réalise le test TV_02 avec *Ob_01*
 2. L'utilisateur *U_01* réalise le test TV_01 avec le résultat qu'il obtient
 
 #### Résultat attendu:
@@ -141,8 +136,7 @@ L'utilisateur *U_01* ne fournit qu'une étape finale pour le BO
 Les Build Order sont identiques
 
 #### Moyens de vérification:
-* Affichage de la part du système
-* Comparaison des Build Orders
+* Comparaison des Build qui devraient être identiques
 
 ---
 
@@ -152,13 +146,14 @@ Les Build Order sont identiques
 ###### Auteur: Nathan Gerday
 
 #### Contexte: 
-L'IA *IA_01* envoie un état du jeu *E_01* incohérent ou impossible suite à un bug du jeu ou de l'IA
+L'IA *IA_01* envoie un objectif avec un état du jeu *E_01* incohérent ou impossible suite à un bug du jeu ou de l'IA
 
 ##### Entrées:
 * État du jeu *J_01*
+* Objectif *Ob_01*
 
 #### Scénario:
-1. L'IA *IA_01* envoie une requête pour changer l'état du jeu au système avec un état du jeu *J_01*
+1. L'IA *IA_01* envoie l'état incohérent *J_01* et l'objectif *Ob_01*
 
 #### Résultat attendu:
 Le système envoie une response d'erreur à l'IA
